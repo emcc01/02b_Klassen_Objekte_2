@@ -2,20 +2,25 @@ package com.cc.java;
 
 public class Cat {
 
-  private String name;
+  private String name; 
   private String furColor;
   private int age; 
+  private boolean isFemale; //für if Bedingung
 
 
-public Cat(String name, String furColor, int age) {
+
+// mit Constructor erzeugen
+  public Cat(String name, String furColor, int age, boolean isFemale) {
     this.name = name;
     this.furColor = furColor;
     this.age = age;
+    this.isFemale = isFemale;
   }
 
-public String getStringAttributes(String op) {
+//kombinierter Getter:
+public String getStringAttributes(String op) { //strings zusammengefasst
   switch (op) {
-    case "#name":
+    case "#name": // Raute nicht unbedingt nötig
       return name;
     case "#color":
       return furColor;
@@ -25,7 +30,12 @@ public String getStringAttributes(String op) {
 }
 
 public String getAge() {
-    return String.valueOf(age);
+  if (isFemale) {
+    return "This is an inappropriate question!";
+  } else {
+    return String.valueOf(age); //wie Integer.toString
+  }
+    
   }
 
 
